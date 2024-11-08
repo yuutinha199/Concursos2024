@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script src="consulta.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição - Concurso dos Correios</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Barra de navegação */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0055a5;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+	 /* Estilos do formulário */
+        .form-container {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #0055a5;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        /* Botão */
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0055a5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #003f7d;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegação -->
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="Sobre.html">Sobre o Concurso</a>
+
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Concurso dos Correios</h1>
+        <p>Formulário de Inscrição</p>
+    </header>
+
+    <!-- Formulário -->
+    <div class="form-container">
+        <h2>Inscreva-se agora</h2>
+        <form>
+            <!-- Dados Pessoais -->
+            <div class="form-group">
+                <label  for="nome">Nome Completo:</label>
+                <input type="text" id="fnome" name="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data-nascimento">Data de Nascimento:</label>
+                <input type="date" id="fdata" name="fdata" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rg">RG:</label>
+                <input type="text" id="frg" name="rg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="fcpf" name="cpf" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endereco">Endereço Completo:</label>
+                <input type="text" id="fende" name="endereco" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone de Contato:</label>
+                <input type="text" id="ftel" name="telefone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="femail" name="email" required>
+            </div>
+
+            <!-- Informações do Concurso -->
+            <div class="form-group">
+                <label>Escolaridade:</label>
+                <label><input type="radio" name="escolaridade" value="Ensino Médio" required> Ensino Médio Completo</label>
+                <label><input type="radio" name="escolaridade" value="Ensino Técnico"> Ensino Técnico Completo</label>
+                <label><input type="radio" name="escolaridade" value="Ensino Superior"> Ensino Superior Completo</label>
+            </div>
+
+            <div class="form-group">                                                                                                                                                                <label for="cargo">Cargo de Interesse:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="carteiro">Carteiro</option>
+                    <option value="triagem">Operador de Triagem e Transbordo</option>
+                    <option value="atendente">Atendente Comercial</option>
+                    <option value="analista">Analista (área específica)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="local">Local de Realização da Prova:</label>
+                <select id="cargo" name="cargo">
+            <option value="carteiro">Clodonil</option>
+            <option value="triagem">Jeremias</option>
+            <option value="analista">Veiga Junior</option>
+        </select>
+            </div>
+
+            <!-- Declaração -->
+            <div class="form-group">
+                <label for="declaracao">Declaração:</label>
+                <p>Declaro que as informações acima são verdadeiras e estou ciente das normas e regulamentos.</p>
+            </div>
+
+            <!-- Botão de Envio -->
+            <div class="form-group">
+                <button onclick="botao()" type="submit">Enviar Inscrição</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
