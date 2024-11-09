@@ -1,5 +1,5 @@
 function botao() {
-   // Captura os valores dos campos
+    // Captura os valores dos campos
     var nome = document.getElementById("fnome").value;
     var ende = document.getElementById("fende").value;
     var rg = document.getElementById("frg").value;
@@ -10,7 +10,7 @@ function botao() {
 
     // Verifica se todos os campos estão preenchidos
     if (nome === "" || ende === "" || rg === "" || tele === "" || email === "" || cpf === "" || data === "") {
-
+        alert("Por favor, preencha todos os campos.");
     } else {
         // Envia os dados ao servidor
         fetch('/salvar', {
@@ -22,7 +22,7 @@ function botao() {
         })
         .then(response => {
             if (response.ok) {
-                return response.text();
+                return response.text(); // Retorna o corpo da resposta
             } else {
                 throw new Error('Erro ao salvar os dados.');
             }
