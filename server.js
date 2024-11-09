@@ -1,21 +1,26 @@
+const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
-const client = require('./bd'); // Importa a conexão com o banco do arquivo bd.js
-const path = require('path'); // Para resolver o caminho para a pasta 'public'
-
 const app = express();
 const port = 3000;
-
-// Serve arquivos estáticos da pasta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuração do body-parser para receber dados no formato 'application/x-www-form-urlencoded'
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Rota para a raiz '/'
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html')); // Serve o index.html da pasta 'public'
+// Conexão com o banco de dados PostgreSQL usando variáveis de ambiente
+const client = new Client({
+  host: process.env.DB_HOST,       // Usando a variável de ambiente DB_HOST
+  port: process.env.DB_PORT,       // Usando a variável de ambiente DB_PORT
+  user: process.env.DB_USER,       // Usando a variável de ambiente DB_USER
+  password: process.env.DB_PASSWORD, // Usando a variável de ambiente DB_PASSWORD
+  database: process.env.DB_NAME,    // Usando a variável de ambiente DB_NAME
+  ssl: { rejectUnauthorized: false } // Necessário para Neon
 });
+
+// Conecta ao banco de dados
+client.connect()
+  .then(() => console.log("Conectado ao banco de dados"))
+  .catch(err => console.error("Erro de conexão:", err));
 
 // Rota para salvar os dados no banco
 app.post('/salvar', (req, res) => {
@@ -46,4 +51,3 @@ app.post('/salvar', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
-
