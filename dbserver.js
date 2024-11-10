@@ -1,16 +1,24 @@
 const { Client } = require('pg');
 
-// Substitua pelas credenciais fornecidas pelo Neon
+// Conexão com o banco de dados PostgreSQL usando variáveis de ambiente
 const client = new Client({
-  host: '@ep-odd-cell-a52wcl0k.us-east-2.aws.neon.tech',     // Exemplo: db.neon.tech
-  port: 5432,                    // Porto padrão do PostgreSQL
-  user: 'Base_owner',           // Seu usuário
-  password: '2xSkXJGgMuV4',         // Sua senha
-  database: 'Base',         // Nome do banco de dados
+  host: process.env.DB_HOST,       // Usando a variável de ambiente DB_HOST
+  port: process.env.DB_PORT,       // Usando a variável de ambiente DB_PORT
+  user: process.env.DB_USER,       // Usando a variável de ambiente DB_USER
+  password: process.env.DB_PASSWORD, // Usando a variável de ambiente DB_PASSWORD
+  database: process.env.DB_NAME,    // Usando a variável de ambiente DB_NAME
+  ssl: { rejectUnauthorized: false } // Necessário para Neon (ajuste conforme seu banco)
 });
 
+// Conectando ao banco de dados
 client.connect()
-  .then(() => console.log("Conectado ao banco de dados"))
-  .catch(err => console.error("Erro de conexão:", err));
+  .then(() => {
+    console.log("Conectado ao banco de dados");
+  })
+  .catch(err => {
+    console.error("Erro de conexão:", err);
+  });
 
+// Exporte o cliente para que outros arquivos possam usá-lo
 module.exports = client;
+
