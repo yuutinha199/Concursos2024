@@ -13,7 +13,7 @@ function botao() {
         alert("Por favor, preencha todos os campos.");
     } else {
         // Envia os dados ao servidor
-       fetch('https://concursos2024-m1vx.vercel.app/salvar', {
+       fetch('https://concursos2024-6bbg.vercel.app/salvar', {
   	method: 'POST',
   	headers: {
     	'Content-Type': 'application/x-www-form-urlencoded',
