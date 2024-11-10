@@ -2,7 +2,6 @@ const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
 
 // Configuração do body-parser para receber dados no formato 'application/x-www-form-urlencoded'
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,7 +46,5 @@ app.post('/salvar', (req, res) => {
         });
 });
 
-// Inicia o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-});
+// Exporta a função para o Vercel
+module.exports = app;

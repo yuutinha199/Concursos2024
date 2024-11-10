@@ -13,11 +13,11 @@ function botao() {
         alert("Por favor, preencha todos os campos.");
     } else {
         // Envia os dados ao servidor
-       fetch('https://concursos2024-6bbg.vercel.app/salvar', {
-  	method: 'POST',
-  	headers: {
-    	'Content-Type': 'application/x-www-form-urlencoded',
-  	},
+        fetch('https://concursos2024-6bbg.vercel.app/salvar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
             body: `nome=${encodeURIComponent(nome)}&endereco=${encodeURIComponent(ende)}&rg=${encodeURIComponent(rg)}&telefone=${encodeURIComponent(tele)}&email=${encodeURIComponent(email)}&cpf=${encodeURIComponent(cpf)}&data=${encodeURIComponent(data)}`
         })
         .then(response => {
