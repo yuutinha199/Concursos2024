@@ -1,9 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const client = require('./dbserver'); // Conexão ao banco de dados
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true })); // Para receber dados como application/x-www-form-urlencoded
+
+// Middleware para servir arquivos estáticos
+app.use(express.static('public'));
+
+// Middlewares para processar JSON e dados codificados em URL
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Rota para salvar os dados no banco de dados
 app.post('/salvar', (req, res) => {
@@ -24,4 +29,4 @@ app.post('/salvar', (req, res) => {
         });
 });
 
-module.exports = app; // Exporta o app para a Vercel
+module.exports = app; // Exporta o app para uso no Vercel
