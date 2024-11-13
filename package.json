@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js" // Script para iniciar o servidor
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.21.1",
-    "pg": "^8.13.1" // Certifique-se de que "pg" está listado aqui
+    "pg": "^8.13.1"
   }
 }
 
