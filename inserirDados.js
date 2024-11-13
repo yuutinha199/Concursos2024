@@ -1,4 +1,4 @@
-const client = require('./dbserver'); // Importa o cliente de conexão do banco
+const client = require('/dbserver'); // Importa o cliente de conexão do banco
 const dados = require('public/consulta'); // Importa os dados de consulta.js
 
 const inserirDados = async () => {
