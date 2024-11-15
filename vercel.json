@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "api/salvar.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/salvar",
-      "dest": "/server.js"
+      "src": "/api/salvar",
+      "dest": "/api/salvar.js"
     }
   ]
 }

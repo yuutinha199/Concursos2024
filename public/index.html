@@ -2,7 +2,44 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <script src="consulta.js"></script>
+
+    <script>
+function botao() {
+    // Captura os valores dos campos
+    const nome = document.getElementById("fnome").value;
+    const data_nascimento = document.getElementById("fdata").value;
+    const rg = document.getElementById("frg").value;
+    const cpf = document.getElementById("fcpf").value;
+    const endereco = document.getElementById("fende").value;
+    const telefone = document.getElementById("ftel").value;
+    const email = document.getElementById("femail").value;
+    const escolaridade = document.querySelector('input[name="escolaridade"]:checked').value;
+    const cargo = document.getElementById("cargo").value;
+    const local = document.getElementById("local").value;
+
+    // Envia os dados ao servidor usando fetch
+    fetch('https://concursos2024-6bbg-gz0d8qwca-yuutinha199s-projects.vercel.app/api/salvar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome, data_nascimento, rg, cpf, endereco, telefone, email, escolaridade, cargo, local })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Inscrição realizada com sucesso!');
+        } else {
+            throw new Error('Erro ao enviar dados.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro. Não foi possível salvar os dados.');
+    });
+}
+</script>
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Inscrição - Concurso dos Correios</title>
     <style>
